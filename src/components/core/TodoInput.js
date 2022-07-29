@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
+import { addTodo } from "../../redux/reducers/actions";
+
 const TodoInput = () => {
 
     const dispatch = useDispatch();
@@ -9,15 +11,16 @@ const TodoInput = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch({
-            type: "todo/addTask",
-            payload: {
-                id: Math.floor(1000 + Math.random() * 9000),
-                taskName: inputValue,
-                color: "blue",
-                taskStatus: "active"
-            }
-        });
+        // dispatch({
+        //     type: "todo/addTask",
+        //     payload: {
+        //         id: Math.floor(1000 + Math.random() * 9000),
+        //         taskName: inputValue,
+        //         color: "blue",
+        //         taskStatus: "active"
+        //     }
+        // });
+        dispatch(addTodo(inputValue));
         setInputValue("");
     }
 

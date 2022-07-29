@@ -13,6 +13,14 @@ const initialState = {
 
 function todoReducer(state = initialState, action) {
     switch (action.type) {
+        case "todo/fetchTodos": {
+            return { ...state, todos: action.payload };
+        }
+        case "todo/addTodo": {
+            const tempTodos = [...state.todos];
+            tempTodos.push(action.payload);
+            return { ...state, todos: tempTodos };
+        }
         case "todo/addTask": {
             const tempTodos = [...state.todos];
             tempTodos.push(action.payload);

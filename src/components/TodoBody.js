@@ -1,8 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import TodoInput from "./core/TodoInput";
 import TodoList from "./core/TodoList";
 import Filter from "./filters";
+import { fetchTodos } from "../redux/reducers/actions";
 
 function TodoBody() {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => { 
+        dispatch(fetchTodos());
+     }, [dispatch]);
+
     return (
         <div>
             <div className='todo-body' >

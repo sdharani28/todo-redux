@@ -23,15 +23,15 @@ const TodoList = () => {
         else {
             setFilteredTodos(todos);
         }
-        setFilteredTodos(prevValue => prevValue.filter(todo => colorFilter.includes(todo?.['color'])));
+        setFilteredTodos(prevValue => prevValue?.filter(todo => colorFilter.includes(todo?.['color'])));
     }, [todos, statusFilter, colorFilter]);
 
 
     return (<>
         {
-            filteredTodos.length ? (<ul className="todo-list">
+            filteredTodos?.length ? (<ul className="todo-list">
                 {
-                    filteredTodos.map((todo, index) => <TodoItem key={todo.id} todo={todo} />)
+                    filteredTodos?.map((todo, index) => <TodoItem key={todo.id} todo={todo} />)
                 }
             </ul>) : (<div className="empty-message">Add your first todo</div>)
         }
